@@ -1,16 +1,39 @@
-# React + Vite
+# Party Games Frontend 🎉
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React frontend for a local multiplayer **party games platform**.
+Designed as a **game hub** that routes players and hosts to individual games.
 
-Currently, two official plugins are available:
+Currently implemented game:
+- **Cards Against Humanity (CAH)** – anonymous answer submission
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+The app is designed to scale easily as more games are added.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ✨ Features
 
-## Expanding the ESLint configuration
+- Central **game hub** landing page
+- Per-game routing (Player / Host views)
+- Anonymous gameplay (no accounts, no tracking)
+- Mobile-friendly (phones first)
+- Clean separation between games
+- Easy to extend with new games
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🛠 Tech Stack
+
+- **React** (Vite)
+- **JavaScript**
+- **React Router**
+- **Fetch API**
+
+### Versions
+- **Node.js 22.17.1**
+- **npm 11.5.1**
+
+---
+
+## 🔗 Backend Integration
+The frontend expects a Spring Boot backend, API calls are centralised in 'src/services/api.js'
+
