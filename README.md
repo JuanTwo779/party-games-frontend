@@ -29,8 +29,8 @@ The app is designed to scale easily as more games are added.
 - **Fetch API**
 
 ### Versions
-- **Node.js 22.17.1**
-- **npm 11.5.1**
+- **Node.js 22**
+- **npm 11**
 
 ---
 
