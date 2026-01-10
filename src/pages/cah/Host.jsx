@@ -1,16 +1,25 @@
 import { useEffect, useState } from "react";
+import { getCahAnswers, clearCah } from "../../services/api";
 
 function Host() {
   const [answers, setAnswers] = useState([]);
 
   const load = async () => {
-    const res = await fetch("endpoint to retrieve answers from backend");
-    setAnswers(await res.json());
+    try {
+      const res = await getCahAnswers();
+      setAnswers(res);
+    } catch (error) {
+      console.error("Failed to load answers", error);
+    }
   };
 
   const clear = async () => {
-    await fetch("endpoint to clear answers", { method: "POST" });
-    load();
+    try {
+      await clearCah() ;
+      load();
+    } catch (error) {
+      console.error("Failed to clear answers", error);
+    }
   };
 
   useEffect(() => {
