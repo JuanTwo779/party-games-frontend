@@ -1,11 +1,16 @@
 const BASE_URL = "http://localhost:8080/api";
 
-export const submitCahAnswer = (answer) =>
-  fetch(`${BASE_URL}/cah/submit`, {
+// Submit an answer for Cards Against Humanity
+export const submitCahAnswer = async (answer) => {
+  const response = await fetch(`${BASE_URL}/cah/submit`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ answer })
+    body: JSON.stringify({ answer }),
   });
+
+  if (!response.ok) {throw new Error("Failed to submit answer");}
+  return response.json();
+}
 
 export const getCahAnswers = () =>
   fetch(`${BASE_URL}/cah/answers`).then(res => res.json());
