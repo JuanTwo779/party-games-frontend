@@ -1,18 +1,23 @@
 import { useState } from "react";
+import { submitCahAnswer } from "../../services/api";
 
 function Player() {
   const [answer, setAnswer] = useState("");
   const [status, setStatus] = useState("");
 
   const submit = async () => {
-    await fetch("endpoint to send answers to backend", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answer })
-    });
-
-    setAnswer("");
-    setStatus("Submitted anonymously ✅");
+    if (!answer.trim()) {
+      setStatus("Answer cannot be empty ❌");
+      return;
+    }
+    try {
+      await submitCahAnswer(answer);
+      setAnswer("");
+      setStatus("Submitted anonymously ✅");
+    } catch (error) {
+      setStatus("Failed to submit answer ❌");
+      console.error(error);
+    }
   };
 
   return (
@@ -26,7 +31,7 @@ function Player() {
       />
       <br /><br />
       <button onClick={submit}>Submit</button>
-      <p>{status}</p>
+      {status && <p>{status}</p>}
     </div>
   );
 }
