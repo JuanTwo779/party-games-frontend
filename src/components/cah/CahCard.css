@@ -1,0 +1,39 @@
+.cah-card {
+  width: 180px;
+  height: 260px;
+  border-radius: 14px;
+  background: #ffffff;
+  color: #000000;
+  cursor: pointer;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, background 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Face-down */
+.cah-card:not(.revealed) {
+  background: #111827; /* near-black */
+  color: #ffffff;
+}
+
+/* Revealed */
+.cah-card.revealed {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Winner */
+.cah-card.winner {
+  background: #2563eb;
+  color: #ffffff;
+  box-shadow: 0 0 35px rgba(37, 99, 235, 0.9);
+}
+
+.cah-card:hover {
+  transform: translateY(-8px);
+}

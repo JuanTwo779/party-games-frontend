@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getCahAnswers, clearCah } from "../../services/api";
+import CahBoard from "../../components/cah/CahBoard";
 
 function Host() {
   const [answers, setAnswers] = useState([]);
@@ -31,9 +32,7 @@ function Host() {
   return (
     <div style={{ padding: 20 }}>
       <h2>Answers</h2>
-      <ul>
-        {answers.map((a, i) => <li key={i}>{a}</li>)}
-      </ul>
+      <CahBoard answers={answers} />
       <button onClick={clear}>New Round</button>
     </div>
   );
