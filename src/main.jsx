@@ -1,5 +1,7 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
@@ -14,5 +16,6 @@ createRoot(document.getElementById('root')).render(
       <Route path='/cah' element={<CahPlayer/>}></Route>
       <Route path='/cah/host' element={<CahHost/>}></Route>
     </Routes>
+    <ToastContainer position="top-center" />
   </BrowserRouter>
 )
